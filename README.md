@@ -13,6 +13,8 @@ shortest path problem for a graph with non-negative edge path costs, producing a
 
 require 'dijkstra'
 
+ # In this context , 5 represents the number of the vertices (cities, countries, factories etc), 
+ # and futher we have 9 edges.
  r = [[5],
      [1,2,1],
      [1,3,9],
@@ -24,8 +26,8 @@ require 'dijkstra'
      [5,2,4],
      [5,4,2]]
 
-start_point = 1
-  end_point = 3
+start_point = 1 #starting node
+  end_point = 3 #arrival node
 
 ob = Dijkstra.new(start_point, end_point, r)
 
