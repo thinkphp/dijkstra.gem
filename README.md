@@ -1,8 +1,13 @@
 # Dijkstra's Algorithm
 
-# Install > gem install dijkstra
+## Install > gem install dijkstra
 
-# Usage
+Dijkstra's algorithm, conceived by computer scientist Edsger Dijkstra, is a graph search algorithm that solves in single-source
+shortest path problem for a graph with non-negative edge path costs, producing a shortest path tree. 
+
+![Screenshot](http://farm6.staticflickr.com/5572/15142640541_6ea1eb3d48.jpg)
+
+## Usage
 
 ```
 
@@ -36,12 +41,12 @@ ob.writeToFile("shortestpath.out")
 
 ```
 
-# Installation manually
+## Installation manually
 
 ```
 
 $ git clone git://github.com/thinkphp/dijkstra.gem.git
-$ cd dijkstra
+$ cd dijkstra.gem
 $ gem build dijkstra.gemspec
 $ gem install ./dijkstra-0.0.1.gem
 $ irb
@@ -51,3 +56,7 @@ $ Shortest Path  = [1,2,4,3]=> true
 $ irb(main):002:0> exit
 
 ```
+
+## References
+
+  http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
