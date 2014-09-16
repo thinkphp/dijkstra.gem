@@ -1,6 +1,6 @@
-# Dijkstra's Algorithm
+# Dijkstra's Algorithm https://badge.fury.io/rb/dijkstra.svg
 
-## Install > gem install dijkstra
+## Install > gem install dijkstra 
 
 Dijkstra's algorithm, conceived by computer scientist Edsger Dijkstra, is a graph search algorithm that solves in single-source
 shortest path problem for a graph with non-negative edge path costs, producing a shortest path tree. 
