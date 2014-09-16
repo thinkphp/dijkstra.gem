@@ -32,7 +32,7 @@ start_point = 1 #starting node
 ob = Dijkstra.new(start_point, end_point, r)
 
 print "Cost = ", ob.getCost(), "\n"
-print "Shortest Path = ", ob.getShortestPath()
+print "Shortest Path from ", start_point, " to ", end_point," = ", ob.getShortestPath()
 
 ob.writeToFile("shortestpath.out")
 
@@ -56,6 +56,9 @@ $ irb(main):001:0> require 'dijkstra'
 $ Cost = 6
 $ Shortest Path  = [1,2,4,3]=> true
 $ irb(main):002:0> exit
+$ gem list -r dij #grab it from any computer with RubyGems installed
+$ gem list -l dij
+$ ruby app.rb
 
 ```
 
