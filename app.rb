@@ -17,6 +17,6 @@ end_point = 3
 ob = Dijkstra.new(start_point, end_point, r)
 
 print "Cost = ", ob.getCost(), "\n"
-print "Shortest Path = ", ob.getShortestPath()
+print "Shortest Path from ", start_point, " to ", end_point," = ", ob.getShortestPath()
 
 ob.writeToFile("shortestpath.out")
