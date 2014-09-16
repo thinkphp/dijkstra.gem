@@ -1,6 +1,6 @@
 # Dijkstra's Algorithm 
 
-[ ![Image](https://rubygems.org/gems/dijkstra "Image title") ](https://badge.fury.io/rb/dijkstra.svg "Badge")
+[ ![Image](https://badge.fury.io/rb/dijkstra.svg "Image title") ](https://rubygems.org/gems/dijkstra "Badge")
 
 ## Install > gem install dijkstra 
 
