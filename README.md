@@ -1,4 +1,4 @@
-# Dijkstra's Algorithm https://badge.fury.io/rb/dijkstra.svg
+# Dijkstra's Algorithm [https://badge.fury.io/rb/dijkstra.svg](https://badge.fury.io/rb/dijkstra.svg)
 
 ## Install > gem install dijkstra 
 
