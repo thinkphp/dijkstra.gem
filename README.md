@@ -15,10 +15,8 @@ shortest path problem for a graph with non-negative edge path costs, producing a
 
 require 'dijkstra'
 
- # In this context , 5 represents the number of the vertices (cities, countries, factories etc), 
- # and futher we have 9 edges.
- r = [[5],
-     [1,2,1],
+# In this context we have 9 edges or paths.
+ r = [[1,2,1],
      [1,3,9],
      [1,5,3],
      [2,4,3],

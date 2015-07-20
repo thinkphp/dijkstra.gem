@@ -11,12 +11,28 @@ class Dijkstra
 
     @path = []
 
-    @infinit = 88
+    @infinit = 999_999_999_999
+
+    # Recriating matrix_of_road to avoid passing the number
+    # of vertices in the first element.
+    vertices = number_of_vertices(matrix_of_road.dup)
+    matrix_of_road =  matrix_of_road.unshift([vertices])
 
     read_and_init(matrix_of_road)
 
     # Dijkstra's algorithm in action and good luck
     dijkstra
+  end
+
+  # Calculates the number of vertices (unique elements)
+  # in a matrix of road
+  def number_of_vertices(matrix)
+    # Ignoring the weight element (third element)
+    matrix = matrix.collect { |x| [x[0], x[1]] }
+    # Merging all the path arrays
+    matrix = matrix.zip.flatten.compact
+    # Returning the number of unique elements (vertices)
+    matrix.uniq.count
   end
 
   # This method determines the minimum cost of the shortest path
@@ -36,16 +52,15 @@ class Dijkstra
   end
 
   def dijkstra
-    start = @start
     min = @infinit
     pos_min = @infinit
 
     (1..@nodes - 1).each do |i|
-      @r[i] = @road[start][i]
-      @f[i] = start if i != start && @r[i] < @infinit
+      @r[i] = @road[@start][i]
+      @f[i] = @start if i != @start && @r[i] < @infinit
     end
 
-    @s[start] = 1
+    @s[@start] = 1
 
     (1..@nodes - 2).each do
       min = @infinit
