@@ -11,7 +11,7 @@ class Dijkstra
 
     @path = []
 
-    @infinit = 999_999_999_999
+    @infinit = Float::INFINITY
 
     # Recriating matrix_of_road to avoid passing the number
     # of vertices in the first element.
@@ -31,6 +31,8 @@ class Dijkstra
     matrix = matrix.collect { |x| [x[0], x[1]] }
     # Merging all the path arrays
     matrix = matrix.zip.flatten.compact
+    # All the vertices
+    @nodes = matrix.uniq.dup
     # Returning the number of unique elements (vertices)
     matrix.uniq.count
   end
@@ -55,17 +57,17 @@ class Dijkstra
     min = @infinit
     pos_min = @infinit
 
-    (1..@nodes - 1).each do |i|
-      @r[i] = @road[@start][i]
+    @nodes.each do |i|
+      @r[i] = @road[[@start, i]]
       @f[i] = @start if i != @start && @r[i] < @infinit
     end
 
     @s[@start] = 1
 
-    (1..@nodes - 2).each do
+    @nodes.each do
       min = @infinit
 
-      (1..@nodes - 1).each do |i|
+      @nodes.each do |i|
         if @s[i] == 0 && @r[i] < min
           min = @r[i]
           pos_min = i
@@ -74,10 +76,10 @@ class Dijkstra
 
       @s[pos_min] = 1
 
-      (1..@nodes - 1).each do|j|
+      @nodes.each do|j|
         if @s[j] == 0
-          if @r[j] > @r[pos_min] + @road[pos_min][j]
-            @r[j] = @r[pos_min] + @road[pos_min][j]
+          if @r[j] > @r[pos_min] + @road[[pos_min, j]]
+            @r[j] = @r[pos_min] + @road[[pos_min, j]]
             @f[j] = pos_min
           end
         end
@@ -86,33 +88,31 @@ class Dijkstra
   end
 
   def read_and_init(arr)
-    @nodes = arr[0][0] + 1
-
     n = arr.size - 1
 
-    @road = Array.new(@nodes) { Array.new(@nodes) }
-    @r = Array.new(@nodes)
-    @s = Array.new(@nodes)
-    @f = Array.new(@nodes)
+    @road = Hash.new(@nodes)
+    @r = Hash.new(@nodes)
+    @s = Hash.new(@nodes)
+    @f = Hash.new(@nodes)
 
-    (0..@nodes - 1).each do |i|
+    @nodes.each do |i|
       @r[i] = 0
     end
 
-    (0..@nodes - 1).each do |i|
+    @nodes.each do |i|
       @s[i] = 0
     end
 
-    (0..@nodes - 1).each do |i|
+    @nodes.each do |i|
       @f[i] = 0
     end
 
-    (0..@nodes - 1).each do |i|
-      (0..@nodes - 1).each do |j|
+    @nodes.each do |i|
+      @nodes.each do |j|
         if i == j
-          @road[i][j] = 0
+          @road[[i, j]] = 0
         else
-          @road[i][j] = @infinit
+          @road[[i, j]] = @infinit
         end
       end
     end
@@ -121,7 +121,7 @@ class Dijkstra
       x = arr[i][0]
       y = arr[i][1]
       c = arr[i][2]
-      @road[x][y] = c
+      @road[[x, y]] = c
     end
   end
 
