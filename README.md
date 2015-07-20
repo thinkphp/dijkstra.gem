@@ -2,12 +2,16 @@
 
 [ ![Image](https://badge.fury.io/rb/dijkstra.svg "Image title") ](https://rubygems.org/gems/dijkstra "Badge")
 
-## Install > gem install dijkstra 
-
 Dijkstra's algorithm, conceived by computer scientist Edsger Dijkstra, is a graph search algorithm that solves in single-source
 shortest path problem for a graph with non-negative edge path costs, producing a shortest path tree. 
 
 ![Screenshot](http://farm6.staticflickr.com/5572/15142640541_6ea1eb3d48.jpg)
+
+## Install
+
+```
+gem install dijkstra 
+```
 
 ## Usage
 
@@ -49,7 +53,7 @@ ob.write_to_file('shortestpath.out')
 
 ```
 
-$ git clone git://github.com/thinkphp/dijkstra.gem.git
+$ git clone git://github.com/oscartanner/dijkstra.gem.git
 $ cd dijkstra.gem
 $ gem build dijkstra.gemspec
 $ gem install ./dijkstra-0.0.1.gem
