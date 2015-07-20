@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'dijkstra'
-  s.version     = '0.0.2'
+  s.version     = '0.1.0'
   s.date        = '2014-09-12'
   s.summary     = 'Dijkstra!'
   s.description = "Dijkstra's Algorithm For Shortest Path Directed Graph"
