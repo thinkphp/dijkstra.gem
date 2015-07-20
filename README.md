@@ -52,7 +52,7 @@ ob.write_to_file('shortestpath.out')
 > You can use any kind of element as node, not only numbers
 
 
-## Installation manually
+## Manual Installation
 
 ```
 
