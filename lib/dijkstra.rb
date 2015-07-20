@@ -64,7 +64,7 @@ class Dijkstra
 
     @s[@start] = 1
 
-    @nodes.each do
+    @nodes[0..@nodes.size - 2].each do
       min = @infinit
 
       @nodes.each do |i|
