@@ -125,6 +125,7 @@ class Dijkstra
     end
   end
 
+  # Write the result on file
   def write_to_file(filename)
     f = File.open(filename, 'w')
     out = "Cost -> #{@r[@end]}\nShortest Path -> #{@path}"

@@ -27,14 +27,14 @@ require 'dijkstra'
      [5,4,2]]
 
 start_point = 1 #starting node
-  end_point = 3 #arrival node
+end_point = 3 #arrival node
 
 ob = Dijkstra.new(start_point, end_point, r)
 
-print "Cost = ", ob.getCost(), "\n"
-print "Shortest Path from ", start_point, " to ", end_point," = ", ob.getShortestPath()
+puts "Cost = #{ob.cost}"
+puts "Shortest Path from #{start_point} to #{end_point} = #{ob.shortest_path()}"
 
-ob.writeToFile("shortestpath.out")
+ob.write_to_file("shortestpath.out")
 
 =>  shortestpath.out =>
 
@@ -42,6 +42,8 @@ ob.writeToFile("shortestpath.out")
     Shortest Path -> [1, 2, 4, 3]
 
 ```
+
+> You can use any kind of element as node, not only numbers
 
 ## Installation manually
 
