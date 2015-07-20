@@ -11,85 +11,85 @@ class Dijkstra
 
     @path = []
 
-    @PInfinit = 88
+    @infinit = 88
 
-    readAndInit(matrix_of_road)
+    read_and_init(matrix_of_road)
 
     # Dijkstra's algorithm in action and good luck
     dijkstra
   end
 
   # This method determines the minimum cost of the shortest path
-  def getCost
-    @R[@end]
+  def cost
+    @r[@end]
   end
 
   # get the shortest path
-  def getShortestPath
-    ROAD(@end)
+  def shortest_path
+    road(@end)
     @path
   end
 
-  def ROAD(node)
-    ROAD(@F[node]) if @F[node] != 0
+  def road(node)
+    road(@f[node]) if @f[node] != 0
     @path.push(node)
   end
 
   def dijkstra
     start = @start
-    min = @PInfinit
-    posMin = @PInfinit
+    min = @infinit
+    pos_min = @infinit
 
     (1..@nodes - 1).each do |i|
-      @R[i] = @road[start][i]
-      @F[i] = start if i != start && @R[i] < @PInfinit
+      @r[i] = @road[start][i]
+      @f[i] = start if i != start && @r[i] < @infinit
     end
 
-    @S[start] = 1
+    @s[start] = 1
 
     (1..@nodes - 2).each do
-      min = @PInfinit
+      min = @infinit
 
       (1..@nodes - 1).each do |i|
-        if @S[i] == 0 && @R[i] < min
-          min = @R[i]
-          posMin = i
+        if @s[i] == 0 && @r[i] < min
+          min = @r[i]
+          pos_min = i
         end
-      end 
+      end
 
-      @S[posMin] = 1  
+      @s[pos_min] = 1
 
       (1..@nodes - 1).each do|j|
-        if @S[j] == 0
-          if @R[j] > @R[posMin] + @road[posMin][j]
-            @R[j] = @R[posMin] + @road[posMin][j]
-            @F[j] = posMin
+        if @s[j] == 0
+          if @r[j] > @r[pos_min] + @road[pos_min][j]
+            @r[j] = @r[pos_min] + @road[pos_min][j]
+            @f[j] = pos_min
           end
         end
       end
     end
   end
 
-  def readAndInit(arr)
+  def read_and_init(arr)
     @nodes = arr[0][0] + 1
 
     n = arr.size - 1
 
     @road = Array.new(@nodes) { Array.new(@nodes) }
-    @R = Array.new(@nodes)
-    @S = Array.new(@nodes)
-    @F = Array.new(@nodes)
+    @r = Array.new(@nodes)
+    @s = Array.new(@nodes)
+    @f = Array.new(@nodes)
 
     (0..@nodes - 1).each do |i|
-      @R[i] = 0
+      @r[i] = 0
     end
 
     (0..@nodes - 1).each do |i|
-      @S[i] = 0
+      @s[i] = 0
     end
 
     (0..@nodes - 1).each do |i|
-      @F[i] = 0
+      @f[i] = 0
     end
 
     (0..@nodes - 1).each do |i|
@@ -97,7 +97,7 @@ class Dijkstra
         if i == j
           @road[i][j] = 0
         else
-          @road[i][j] = @PInfinit
+          @road[i][j] = @infinit
         end
       end
     end
@@ -110,9 +110,9 @@ class Dijkstra
     end
   end
 
-  def writeToFile(filename)
+  def write_to_file(filename)
     f = File.open(filename, 'w')
-    out = "Cost -> #{@R[@end]}\nShortest Path -> #{@path}"
+    out = "Cost -> #{@r[@end]}\nShortest Path -> #{@path}"
     f.write(out)
     f.close
   end

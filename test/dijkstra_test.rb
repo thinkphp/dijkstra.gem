@@ -10,15 +10,15 @@ class DijkstraTest < MiniTest::Test
 
   def test_dijkstra
     dijk = Dijkstra.new(1, 4, matrix_of_road)
-    assert_equal(25, dijk.getCost)
-    assert_equal([1, 2, 4], dijk.getShortestPath)
+    assert_equal(25, dijk.cost)
+    assert_equal([1, 2, 4], dijk.shortest_path)
 
     dijk = Dijkstra.new(1, 5, matrix_of_road)
-    assert_equal(55, dijk.getCost)
-    assert_equal([1, 2, 4, 5], dijk.getShortestPath)
+    assert_equal(55, dijk.cost)
+    assert_equal([1, 2, 4, 5], dijk.shortest_path)
 
     dijk = Dijkstra.new(2, 5, matrix_of_road)
-    assert_equal(45, dijk.getCost)
-    assert_equal([2, 4, 5], dijk.getShortestPath)
+    assert_equal(45, dijk.cost)
+    assert_equal([2, 4, 5], dijk.shortest_path)
   end
 end
