@@ -7,11 +7,13 @@ shortest path problem for a graph with non-negative edge path costs, producing a
 
 ![Screenshot](http://farm6.staticflickr.com/5572/15142640541_6ea1eb3d48.jpg)
 
+
 ## Install
 
 ```
 gem install dijkstra 
 ```
+
 
 ## Usage
 
@@ -49,6 +51,7 @@ ob.write_to_file('shortestpath.out')
 
 > You can use any kind of element as node, not only numbers
 
+
 ## Installation manually
 
 ```
@@ -62,6 +65,7 @@ $ Cost = 6
 $ Shortest Path  = [1,2,4,3]=> true
 
 ```
+
 
 ## References
   http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
