@@ -49,6 +49,10 @@ class DijkstraTest < MiniTest::Test
     dijk = Dijkstra.new(1, 8, path_integer)
     assert_equal(80, dijk.cost)
     assert_equal([1, 2, 4, 5, 8], dijk.shortest_path)
+
+    dijk = Dijkstra.new(1, 1, path_integer)
+    assert_equal(0, dijk.cost)
+    assert_equal([1], dijk.shortest_path)
   end
 
   def test_dijkstra_string_path
@@ -67,6 +71,9 @@ class DijkstraTest < MiniTest::Test
     dijk = Dijkstra.new('A', 'H', path_string)
     assert_equal(80, dijk.cost)
     assert_equal(%w(A B D E H), dijk.shortest_path)
+
+    dijk = Dijkstra.new('A', 'A', path_string)
+    assert_equal(0, dijk.cost)
+    assert_equal(%w(A), dijk.shortest_path)
   end
-  
 end
