@@ -49,8 +49,8 @@ ob.write_to_file('shortestpath.out')
 
 ```
 
-> You can use any kind of element as node, not only numbers
-
+> You can use any kind of element as node, not only numbers.
+> If returned cost is Infinity, and returned shortest_path is the starting node, then there is no Path that connects starting node and arrival node.
 
 ## Manual Installation
 
