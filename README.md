@@ -2,12 +2,18 @@
 
 [ ![Image](https://badge.fury.io/rb/dijkstra.svg "Image title") ](https://rubygems.org/gems/dijkstra "Badge")
 
-## Install > gem install dijkstra 
-
 Dijkstra's algorithm, conceived by computer scientist Edsger Dijkstra, is a graph search algorithm that solves in single-source
 shortest path problem for a graph with non-negative edge path costs, producing a shortest path tree. 
 
 ![Screenshot](http://farm6.staticflickr.com/5572/15142640541_6ea1eb3d48.jpg)
+
+
+## Install
+
+```
+gem install dijkstra 
+```
+
 
 ## Usage
 
@@ -15,28 +21,26 @@ shortest path problem for a graph with non-negative edge path costs, producing a
 
 require 'dijkstra'
 
- # In this context , 5 represents the number of the vertices (cities, countries, factories etc), 
- # and futher we have 9 edges.
- r = [[5],
-     [1,2,1],
-     [1,3,9],
-     [1,5,3],
-     [2,4,3],
-     [2,3,7],
-     [4,3,2],
-     [4,1,1],
-     [5,2,4],
-     [5,4,2]]
+# In this context we have 9 edges or paths.
+r = [[1, 2, 1],
+     [1, 3, 9],
+     [1, 5, 3],
+     [2, 4, 3],
+     [2, 3, 7],
+     [4, 3, 2],
+     [4, 1, 1],
+     [5, 2, 4],
+     [5, 4, 2]]
 
-start_point = 1 #starting node
-  end_point = 3 #arrival node
+start_point = 1 # starting node
+end_point = 3 # arrival node
 
 ob = Dijkstra.new(start_point, end_point, r)
 
-print "Cost = ", ob.getCost(), "\n"
-print "Shortest Path from ", start_point, " to ", end_point," = ", ob.getShortestPath()
+puts "Cost = #{ob.cost}"
+puts "Shortest Path from #{start_point} to #{end_point} = #{ob.shortest_path}"
 
-ob.writeToFile("shortestpath.out")
+ob.write_to_file('shortestpath.out')
 
 =>  shortestpath.out =>
 
@@ -45,25 +49,23 @@ ob.writeToFile("shortestpath.out")
 
 ```
 
-## Installation manually
+> You can use any kind of element as node, not only numbers.
+> If returned cost is Infinity, and returned shortest_path is the starting node, then there is no Path that connects starting node and arrival node.
+
+## Manual Installation
 
 ```
 
-$ git clone git://github.com/thinkphp/dijkstra.gem.git
+$ git clone git://github.com/oscartanner/dijkstra.gem.git
 $ cd dijkstra.gem
 $ gem build dijkstra.gemspec
 $ gem install ./dijkstra-0.0.1.gem
-$ irb
-$ irb(main):001:0> require 'dijkstra'
+$ ruby app.rb # testing
 $ Cost = 6
 $ Shortest Path  = [1,2,4,3]=> true
-$ irb(main):002:0> exit
-$ gem list -r dij #grab it from any computer with RubyGems installed
-$ gem list -l dij
-$ ruby app.rb
 
 ```
 
-## References
 
+## References
   http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
