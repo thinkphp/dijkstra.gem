@@ -59,7 +59,7 @@ ob.write_to_file('shortestpath.out')
 $ git clone git://github.com/oscartanner/dijkstra.gem.git
 $ cd dijkstra.gem
 $ gem build dijkstra.gemspec
-$ gem install ./dijkstra-0.0.1.gem
+$ gem install ./dijkstra-0.1.0.gem
 $ ruby app.rb # testing
 $ Cost = 6
 $ Shortest Path  = [1,2,4,3]=> true
