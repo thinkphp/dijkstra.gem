@@ -13,7 +13,7 @@ class Dijkstra
 
     @infinit = Float::INFINITY
 
-    # Recriating matrix_of_road to avoid passing the number
+    # Recreating matrix_of_road to avoid passing the number
     # of vertices in the first element.
     vertices = number_of_vertices(matrix_of_road.dup)
     matrix_of_road =  matrix_of_road.unshift([vertices])
