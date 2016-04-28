@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../lib/dijkstra.rb'
 
-# Unity tests for Dijkstra implementation
+# Unit tests for Dijkstra implementation
 class DijkstraTest < MiniTest::Test
   def path_integer
     [[1, 2, 10], [2, 4, 15], [1, 3, 20],
